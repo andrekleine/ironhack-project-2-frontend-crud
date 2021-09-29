@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.navbar {    
+    background-color: #3DC4FC;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    margin-top: 60px;
+    height: 150px;
+    width: 320px;    
+    border: 2px solid orange;
+}
+
+.favorites {
+    padding-top: 20px;    
+    height: 465px;
+    position: relative;    
+}
+
+.wallet {
+    position: absolute;
+    bottom: 0px;
+}
