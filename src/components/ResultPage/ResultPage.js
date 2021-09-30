@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./ResultPage.css"
+import { Link } from "react-router-dom";
 
 const ResultPage = ({ near, query }) => {
   const [results, setResults] = useState([]);
@@ -25,26 +27,39 @@ const ResultPage = ({ near, query }) => {
   console.log(results);
 
   return (
-    <div className='position-relative align-itens-center'>
-      <h1>RESULT PAGE TESTS!!!</h1>
-      <p>aqui estão os 30 mais próximos de você:</p>
+    <div id='all'>
+  <div style={{ height:'50px'}}></div>
+      <div className='insideMap '> 
       {results.map((x) => {
         return (
           <div key={x.id}>
-            <a src='#' alt=''>
-            <div className="card border-success mb-2" style={{ width: "16rem" }}>
+            <Link to={`/details/${x.id}`} style={{ textDecoration: 'none' }} className="container-fluid">
+            <div className="card border-success mb-2 mx-1">
               {/* <img src="..." className="card-img-top" alt="..." /> */}
               <div className="card-body bg-success p-2 text-dark bg-opacity-10 ">
                 <h5 className="card-title">{x.name}</h5>
-                <p className="fs-6 fw-light">
+                <p className="mb-0 mt-0" >
                   {x.location.address} {x.location.city}
                 </p>
               </div>
             </div>
-            </a>
+            </Link>
           </div>
         );
       })}
+      </div>
+      <Link to={`/add-local`} > 
+      <div className="position-fixed top-100 start-50 translate-middle mb-5 container-fluid">
+      <div className="card border-success mb-4" >
+              <div className="card-body bg-warning p-0 text-dark bg-opacity-50">
+                <h5 className="card-title">Adicionar novo local + </h5>
+              </div>
+            </div>
+      </div>
+      </Link>
+      <div className="info mt-4 position-fixed top-0 start-50 translate-middle container-fluid"> 
+      <h1 className="card bg-success p-0 text-dark bg-opacity-50 " >RESULT PAGE TESTS!!!</h1>
+      </div>
     </div>
   );
 };
