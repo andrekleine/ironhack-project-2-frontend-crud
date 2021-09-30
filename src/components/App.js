@@ -1,8 +1,8 @@
-import Home from "./Home";
+import Home from "./Home/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ResultPage from "./ResultPage/ResultPage";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
