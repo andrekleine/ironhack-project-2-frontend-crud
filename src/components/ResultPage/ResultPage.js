@@ -49,9 +49,9 @@ const ResultPage = ({ near, query }) => {
       })}
       </div>
       <Link to={`/add-local`} > 
-      <div class="position-fixed top-100 start-50 translate-middle mb-4 container-fluid">
-      <div className="card border-success mb-5" >
-              <div className="card-body bg-success p-0 text-dark bg-opacity-50">
+      <div className="position-fixed top-100 start-50 translate-middle mb-5 container-fluid">
+      <div className="card border-success mb-4" >
+              <div className="card-body bg-warning p-0 text-dark bg-opacity-50">
                 <h5 className="card-title">Adicionar novo local + </h5>
               </div>
             </div>
