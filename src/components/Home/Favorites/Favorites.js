@@ -1,11 +1,11 @@
 import React from "react";
-import Cards from "./Cards";
+import CardRack from "./CardRack";
 import Wallet from "./Wallet";
 
 const Favorites = () => {
   return (
     <div className="favorites">
-      <Cards />      
+      <CardRack />      
       <Wallet />
     </div>
   );
