@@ -22,6 +22,7 @@ const ResultPage = ({ near, query }) => {
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         setResults(Object.values({ ...response.data.response.venues }));
+        console.log(endPoint + new URLSearchParams(parameters))
       })
       .catch((err) => console.error(err));
   }, []);
