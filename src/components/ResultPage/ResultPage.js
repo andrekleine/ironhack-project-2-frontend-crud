@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ResultPage.css"
 import { Link } from "react-router-dom";
+import Navbar from "../Navbar";
+
 
 const ResultPage = ({ near, query }) => {
   const [results, setResults] = useState([]);
@@ -28,6 +30,7 @@ const ResultPage = ({ near, query }) => {
 
   return (
     <div id='all'>
+    <Navbar />
   <div style={{ height:'50px'}}></div>
       <div className='insideMap '> 
       {results.map((x) => {
