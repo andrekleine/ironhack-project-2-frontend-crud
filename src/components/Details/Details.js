@@ -6,11 +6,13 @@ import image from "./categoryImagePlaceHolder.png";
 import "./Details.css";
 import Rating from "./Rating/Rating";
 import { Link } from "react-router-dom";
-import CardComment from "../Card/CardComment";
 import Price from "./Price/Price";
+import Comments from "./Comments/Comments";
+import Modal from './Modal/Modal'
 
 const Details = (props) => {
-  
+  const [comments, setComments] = useState([]);
+
   const [results, setResults] = useState({
     id: "",
     categoryImage: image,
@@ -55,44 +57,49 @@ const Details = (props) => {
           urlVenue: response.data.response.venue.url,
           priceTier: response.data.response.venue.price.tier,
         });
+        setComments([...response.data.response.venue.tips.groups[0].items]); 
       })
       .catch((err) => console.error(err));
   }, [props.match.params.id]);
 
+  //console.log(comments)
+
   return (
     <div id="all ">
       <Navbar />
-      <div className='card border-success m-2 mt-5'>
-      <div className='card-body bg-warning p-2 text-dark bg-opacity-10 '>
-      <div className="category">
-        <img
-          src={results.categoryImage}
-          alt={results.name}
-          style={{ width: 100, height: 100 }}
-        />
-      </div>
-      <h3>{results.name} </h3>
-      <Rating>{results.rating}</Rating>
-      <p>**Aqui eu fiz isso, porém podemos apresentar também 7/10 para ficar menor ou algo assim, você é o cara do design, fique a vonts**</p>
-      <p>telefone: {results.phone} </p>
-     <Price>{results.priceTier}</Price> 
-      <Link
-        to={`/details/${results.id}/comments`}
-        style={{ textDecoration: "none" }}
-        className="container-fluid"
-      >
-        <CardComment text1={results.tip} text2={results.personTip} />
-      </Link>
+      <div className="card border-success m-2 mt-5">
+        <div className="card-body bg-warning p-2 text-dark bg-opacity-10 ">
+          <div className="category">
+            <img
+              src={results.categoryImage}
+              alt={results.name}
+              style={{ width: 100, height: 100 }}
+            />
+          </div>
+          <h3>{results.name} </h3>
+          <Rating>{results.rating}</Rating>
+          <p>telefone: {results.phone} </p>
+          <Price>{results.priceTier}</Price>
 
-      <Link to={results.urlVenue ? results.urlVenue : "www.teste.com"}>
-        <p>Entre no site da empresa aqui =D </p>
-      </Link>
-      <img
-        src={results.imageSrc}
-        alt={results.name}
-        style={{ width: 100, height: 100 }}
-      />
-      </div>
+          <Link to={results.urlVenue ? results.urlVenue : "www.teste.com"}>
+            <p>Entre no site da empresa aqui =D </p>
+          </Link>
+          <img className="mb-2"
+            src={results.imageSrc}
+            alt={results.name}
+            style={{ width: 100, height: 100 }}
+          />
+          <Comments id={results.id} comments={comments} />
+          <button
+            type="submit"
+            className="btn btn-success submit"
+            style={{ width: "200px" }}
+
+          >
+            Adicionar na carteira
+          </button>
+    <Modal />
+        </div>
       </div>
     </div>
   );

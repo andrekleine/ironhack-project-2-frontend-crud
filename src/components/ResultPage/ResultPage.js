@@ -4,27 +4,31 @@ import axios from "axios";
 import "./ResultPage.css";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
-import CardComment from '../Card/CardComment'
+import CardComment from "../Card/CardComment";
 
-const ResultPage = ({ near, query }) => {
+const ResultPage = (props) => {
   const [results, setResults] = useState([]);
-  const endPoint = "https://api.foursquare.com/v2/venues/search?";
-  const parameters = {
-    client_id: "DQCEDNDNFU2MTEZYJA54SQWTMAGVF55RVTJWPZB4G1EM5BEE",
-    client_secret: "YCYCZ3VML3UKU2EFFYTI253CC1EZ4O4LVYJ410HPLE0NADMV",
-    v: "20210928",
-    near: "São Paulo",
-    query: "Café",
-  };
 
+
+
+  console.log(props);
   useEffect(() => {
+    const endPoint = "https://api.foursquare.com/v2/venues/search?";
+    const param = {
+      client_id: "DQCEDNDNFU2MTEZYJA54SQWTMAGVF55RVTJWPZB4G1EM5BEE",
+      client_secret: "YCYCZ3VML3UKU2EFFYTI253CC1EZ4O4LVYJ410HPLE0NADMV",
+      v: "20210928",
+      near: props.location.state.near,
+      query: props.location.state.query,
+    };
+
     axios
-      .get(endPoint + new URLSearchParams(parameters))
+      .get(endPoint + new URLSearchParams(param))
       .then((response) => {
         setResults(Object.values({ ...response.data.response.venues }));
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [props.location.state.near, props.location.state.query]);
 
   return (
     <div id="all">
@@ -39,7 +43,11 @@ const ResultPage = ({ near, query }) => {
                 style={{ textDecoration: "none" }}
                 className="container-fluid"
               >
-<CardComment title={x.name} text1={x.location.address} text2={x.location.city} />
+                <CardComment
+                  title={x.name}
+                  text1={x.location.address}
+                  text2={x.location.city}
+                />
               </Link>
             </div>
           );
