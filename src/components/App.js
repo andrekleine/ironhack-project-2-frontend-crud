@@ -4,18 +4,18 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ResultPage from "./ResultPage/ResultPage";
 import Details from "./Details/Details";
 import Comments from "./Details/Comments/Comments";
+import Login from "./Login/Login";
 
 const App = () => {
-
-
   return (
-    <div>
+    <div>      
       <BrowserRouter>
         <Switch>
-          <Route path="/details/:id/comments" component={Comments}  />
+          <Route path="/details/:id/comments" component={Comments} />
           <Route path="/result-page" component={ResultPage} />
           <Route path="/details/:id" component={Details} />
-          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Login} />
         </Switch>
       </BrowserRouter>
     </div>
