@@ -7,15 +7,14 @@ import Comments from "./Details/Comments/Comments";
 
 const App = () => {
 
-
   return (
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/details/:id/comments" component={Comments}  />
+          <Route path="/details/:id/comments" component={Comments}/>
           <Route path="/result-page" component={ResultPage} />
           <Route path="/details/:id" component={Details} />
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home}/>
         </Switch>
       </BrowserRouter>
     </div>
