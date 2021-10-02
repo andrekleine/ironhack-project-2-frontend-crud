@@ -13,7 +13,7 @@ const Card = (props) => {
           height="100"
           fill={props.cardColor}
         />
-        <text x="30" y={props.textY} fill={props.textColor} className="card">
+        <text x="18" y={props.textY} fill={props.textColor} className="card">
           {props.cardName}
         </text>
       </Link>

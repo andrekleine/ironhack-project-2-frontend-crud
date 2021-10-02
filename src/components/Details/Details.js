@@ -1,14 +1,13 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, React } from "react";
 import axios from "axios";
 import Navbar from "../Navbar";
 import image from "./categoryImagePlaceHolder.png";
-import "./Details.css";
 import Rating from "./Rating/Rating";
 import { Link } from "react-router-dom";
 import Price from "./Price/Price";
 import Comments from "./Comments/Comments";
-import Modal from './Modal/Modal'
+import AddFav from "../AddFav/AddFav";
+
 
 const Details = (props) => {
   const [comments, setComments] = useState([]);
@@ -90,15 +89,7 @@ const Details = (props) => {
             style={{ width: 100, height: 100 }}
           />
           <Comments id={results.id} comments={comments} />
-          <button
-            type="submit"
-            className="btn btn-success submit"
-            style={{ width: "200px" }}
-
-          >
-            Adicionar na carteira
-          </button>
-    <Modal />
+          <AddFav venue={results} />
         </div>
       </div>
     </div>
