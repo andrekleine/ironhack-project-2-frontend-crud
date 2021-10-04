@@ -16,7 +16,7 @@ const ResultPage = (props) => {
     const endPoint = "https://api.foursquare.com/v2/venues/search?";
     const param = {
       client_id: "DQCEDNDNFU2MTEZYJA54SQWTMAGVF55RVTJWPZB4G1EM5BEE",
-      client_secret: "YCYCZ3VML3UKU2EFFYTI253CC1EZ4O4LVYJ410HPLE0NADMV",
+      client_secret: "XRZZLSD0DFBCCBP2TRLG1UZTOUAWTUY5ANRMAATAV2ABOV0I",
       v: "20210928",
       near: props.location.state.near,
       query: props.location.state.query,
