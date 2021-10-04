@@ -30,7 +30,7 @@ const Details = (props) => {
     const endPoint = `https://api.foursquare.com/v2/venues/${props.match.params.id}?`;
     const parameters = {
       client_id: "DQCEDNDNFU2MTEZYJA54SQWTMAGVF55RVTJWPZB4G1EM5BEE",
-      client_secret: "YCYCZ3VML3UKU2EFFYTI253CC1EZ4O4LVYJ410HPLE0NADMV",
+      client_secret: "XRZZLSD0DFBCCBP2TRLG1UZTOUAWTUY5ANRMAATAV2ABOV0I",
       v: "20210930",
     };
 
