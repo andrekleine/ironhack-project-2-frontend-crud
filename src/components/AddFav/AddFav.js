@@ -33,8 +33,8 @@ const AddFav = (props) => {
   const categories = [
     "Alimentação",
     "Entretenimento",
-    "Esportes/Recreação",
-    "Profissionais/Serviços",
+    "Esportes&Recreação",
+    "Profissionais&Serviços",
     "Diversos",
   ];
 
@@ -43,9 +43,8 @@ const AddFav = (props) => {
   const handleAdd = () => {
     axios
       .post("https://ironrest.herokuapp.com/meusFavoritos", favObj)
-      .then((response) => {
-        console.log(response);
-        history.push("/home");
+      .then((response) => {        
+        history.push(`/favoritos/${props.user}/${favObj.category}`);
       })
       .catch((err) => console.error(err));
   };
