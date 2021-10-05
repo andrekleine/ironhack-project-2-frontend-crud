@@ -9,9 +9,7 @@ import Comments from "./Comments/Comments";
 import AddFav from "../AddFav/AddFav";
 
 
-const Details = (props) => {
-  console.log('Details, user: ', props.user);
-  
+const Details = (props) => {  
   const [comments, setComments] = useState([]);
   const [results, setResults] = useState({
     id: "",

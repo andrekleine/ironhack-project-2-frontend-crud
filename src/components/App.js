@@ -6,11 +6,10 @@ import Details from "./Details/Details";
 import Comments from "./Details/Comments/Comments";
 import Login from "./Login/Login";
 import { useState } from "react";
+import FavCards from "./FavCards/FavCards";
 
 const App = () => {
   const [user, setUser] = useState("");
-
-  console.log('App, user: ', user)
 
   return (
     <div>
@@ -18,10 +17,18 @@ const App = () => {
         <Switch>
           <Route path="/details/:id/comments" component={Comments} />
           <Route path="/result-page" component={ResultPage} />
-          <Route path="/details/:id" render={(props) => <Details {...props} user={user} />} />
-          <Route path="/home" render={(props) => <Home {...props} user={user} />} />
+          <Route path="/favoritos/:user/:category" component={FavCards} />
           <Route
-            exact path="/"
+            path="/details/:id"
+            render={(props) => <Details {...props} user={user} />}
+          />
+          <Route
+            path="/home"
+            render={(props) => <Home {...props} user={user} />}
+          />
+          <Route
+            exact
+            path="/"
             render={(props) => <Login {...props} setUser={setUser} />}
           />
         </Switch>

@@ -6,8 +6,6 @@ import SearchBar from "./SearchBar/SearchBar";
 import Navbar from "../Navbar";
 
 const Home = (props) => {
-  console.log('Home, user: ', props.user);  
-
   return (
     <div className="home">
       <Navbar />
