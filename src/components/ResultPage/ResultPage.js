@@ -8,10 +8,7 @@ import CardComment from "../Card/CardComment";
 
 const ResultPage = (props) => {
   const [results, setResults] = useState([]);
-
-
-
-  console.log(props);
+    
   useEffect(() => {
     const endPoint = "https://api.foursquare.com/v2/venues/search?";
     const param = {

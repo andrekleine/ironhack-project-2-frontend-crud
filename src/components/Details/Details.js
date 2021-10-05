@@ -10,8 +10,9 @@ import AddFav from "../AddFav/AddFav";
 
 
 const Details = (props) => {
+  console.log('Details, user: ', props.user);
+  
   const [comments, setComments] = useState([]);
-
   const [results, setResults] = useState({
     id: "",
     categoryImage: image,
@@ -22,8 +23,9 @@ const Details = (props) => {
       "https://image.shutterstock.com/image-vector/photo-coming-soon-image-eps10-600w-86220151.jpg",
     tip: "",
     personTip: "",
-    urlVenue: ",",
-    priceTier: 0,
+    urlVenue: "",
+    user:"",
+    // priceTier: 0,
   });
 
   useEffect(() => {
@@ -54,7 +56,7 @@ const Details = (props) => {
           personTip:
             response.data.response.venue.tips.groups[0].items[0].user.firstName,
           urlVenue: response.data.response.venue.url,
-          priceTier: response.data.response.venue.price.tier,
+          // priceTier: response.data.response.venue.price.tier.length ? response.data.response.venue.price.tier : '',
         });
         setComments([...response.data.response.venue.tips.groups[0].items]); 
       })
@@ -89,7 +91,7 @@ const Details = (props) => {
             style={{ width: 100, height: 100 }}
           />
           <Comments id={results.id} comments={comments} />
-          <AddFav venue={results} />
+          <AddFav venue={results} user={props.user} />
         </div>
       </div>
     </div>
