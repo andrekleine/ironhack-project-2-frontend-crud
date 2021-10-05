@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -10,15 +10,12 @@ import axios from "axios";
 
 const AddFav = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [category, setCategory] = useState(null);
   const [favObj, setFavObj] = useState({
     user: props.user,
     category: "",
     venue: props.venue,
   });
   const [title, setTitle] = useState("Selecione a categoria");
-
-  console.log("AddFav, category: ", category);
 
   const showModal = () => {
     setIsOpen(true);
@@ -30,7 +27,7 @@ const AddFav = (props) => {
 
   const handleSelect = (e) => {
     setTitle(e);
-    setCategory(e);
+    setFavObj({ ...favObj, category: e });
   };
 
   const categories = [
@@ -52,10 +49,6 @@ const AddFav = (props) => {
       })
       .catch((err) => console.error(err));
   };
-
-  useEffect(() => {
-    setFavObj({ ...favObj, category: category });
-  }, [category, favObj]);
 
   return (
     <div>
