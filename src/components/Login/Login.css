@@ -13,8 +13,13 @@
     font-size: 2.5rem;
 }
 
-.dropdown {
+.dropdown {    
+    display: flex;
+    flex-direction: column;    
     margin-top: 10px;
-    margin-bottom: 35vh;
-    /* text-decoration: none; */
+    height: 100px;
+}
+
+.box {
+    padding-bottom: 100vh;
 }
