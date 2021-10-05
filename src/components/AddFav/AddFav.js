@@ -34,10 +34,10 @@ const AddFav = (props) => {
   };
 
   const categories = [
-    "Restaurantes & Cafés",
-    "Bares & Casas Noturnas",
-    "Pontos Turísticos",
-    "Serviços",
+    "Alimentação",
+    "Entretenimento",
+    "Esportes/Recreação",
+    "Profissionais/Serviços",
     "Diversos",
   ];
 

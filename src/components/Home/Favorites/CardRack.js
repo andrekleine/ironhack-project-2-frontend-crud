@@ -4,10 +4,10 @@ import Card from "./Card";
 const CardRack = () => {
   return (
     <svg width="320" height="350">
-    <Card link="#" cardY="0" cardColor="#E2E200" textY="36" textColor="#919100" cardName="Restaurantes & Cafés"/>
-    <Card link="#" cardY="50" cardColor="#FF5959" textY="86" textColor="#CC0000" cardName="Bares & Casas Noturnas"/>
-    <Card link="#" cardY="100" cardColor="#54CE52" textY="136" textColor="#238C21" cardName="Pontos Turísticos"/>
-    <Card link="#" cardY="150" cardColor="#8C7CFF" textY="186" textColor="#1D00FF" cardName="Serviços"/>
+    <Card link="#" cardY="0" cardColor="#E2E200" textY="36" textColor="#919100" cardName="Alimentação"/>
+    <Card link="#" cardY="50" cardColor="#FF5959" textY="86" textColor="#CC0000" cardName="Entretenimento"/>
+    <Card link="#" cardY="100" cardColor="#54CE52" textY="136" textColor="#238C21" cardName="Esportes/Recreação"/>
+    <Card link="#" cardY="150" cardColor="#8C7CFF" textY="186" textColor="#1D00FF" cardName="Profissionais/Serviços"/>
     <Card link="#" cardY="200" cardColor="black" textY="236" textColor="white" cardName="Diversos"/>    
     </svg>
   );
