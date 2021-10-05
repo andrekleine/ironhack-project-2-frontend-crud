@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Dropdown } from "react-bootstrap/dist/react-bootstrap.min.js";
+import {
+  Dropdown,
+  DropdownButton,
+} from "react-bootstrap/dist/react-bootstrap.min.js";
 import { useHistory } from "react-router";
 import axios from "axios";
 
@@ -10,11 +13,12 @@ const AddFav = (props) => {
   const [category, setCategory] = useState(null);
   const [favObj, setFavObj] = useState({
     user: props.user,
-    category: '',
-    venue: props.venue
+    category: "",
+    venue: props.venue,
   });
-  
-  console.log('AddFav, category: ',category);
+  const [title, setTitle] = useState("Selecione a categoria");
+
+  console.log("AddFav, category: ", category);
 
   const showModal = () => {
     setIsOpen(true);
@@ -25,11 +29,10 @@ const AddFav = (props) => {
   };
 
   const handleSelect = (e) => {
-    console.log(Object.values(e.target));
-    let temp = Object.values(e.target);
-    setCategory(temp[1].children);
+    setTitle(e);
+    setCategory(e);
   };
-  
+
   const categories = [
     "Restaurantes & Cafés",
     "Bares & Casas Noturnas",
@@ -51,8 +54,8 @@ const AddFav = (props) => {
   };
 
   useEffect(() => {
-    setFavObj({...favObj, category: category});
-  }, [category]);
+    setFavObj({ ...favObj, category: category });
+  }, [category, favObj]);
 
   return (
     <div>
@@ -60,19 +63,18 @@ const AddFav = (props) => {
       <Modal show={isOpen} onHide={hideModal}>
         <Modal.Body>
           <div className="dropdown">
-            <Dropdown onClick={(e) => handleSelect(e)}>
-              <Dropdown.Toggle variant="light" id="dropdown-basic">
-                Selecione a Categoria
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                {categories.map((category) => (
-                  <Dropdown.Item eventkey={category} key={category}>
-                    {category}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
+            <DropdownButton
+              title={title}
+              id="dropdown-button-drop"
+              onSelect={handleSelect}
+              style={{ width: "200px" }}
+            >
+              {categories.map((category) => (
+                <Dropdown.Item eventKey={category} key={category}>
+                  {category}
+                </Dropdown.Item>
+              ))}
+            </DropdownButton>
           </div>
         </Modal.Body>
         <Modal.Footer>

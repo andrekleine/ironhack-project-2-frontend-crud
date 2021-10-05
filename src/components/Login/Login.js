@@ -4,8 +4,11 @@ import {
   DropdownButton,
 } from "react-bootstrap/dist/react-bootstrap.min.js";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Login = (props) => {
+  const [title, setTitle] = useState('Escolha o usuário');
+
   const users = [
     "Amarílis",
     "André",
@@ -34,6 +37,7 @@ const Login = (props) => {
   ];
 
   const handleSelect = (e) => {
+    setTitle(e);
     props.setUser(e);
   };
 
@@ -42,9 +46,10 @@ const Login = (props) => {
       <h1>Meus Favoritos</h1>
       <div className="dropdown">
         <DropdownButton
-          title="Escolha o usuario"
+          title={title}
           id="dropdown-button-drop"
           onSelect={handleSelect}
+          style={{width:"200px"}}          
         >
           {users.map((user) => (
             <Dropdown.Item eventKey={user} key={user} user={user}>
@@ -53,7 +58,7 @@ const Login = (props) => {
           ))}
         </DropdownButton>
         <button type="button" className="btn btn-primary">
-          <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/home" style={{ textDecoration: "none", color: "white", width:"150px" }}>
             Entrar
           </Link>
         </button>
