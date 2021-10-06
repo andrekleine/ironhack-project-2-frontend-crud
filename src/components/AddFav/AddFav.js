@@ -17,6 +17,8 @@ const AddFav = (props) => {
   });
   const [title, setTitle] = useState("Selecione a categoria");
 
+  console.log(favObj);
+
   const showModal = () => {
     setIsOpen(true);
   };
@@ -27,7 +29,7 @@ const AddFav = (props) => {
 
   const handleSelect = (e) => {
     setTitle(e);
-    setFavObj({ ...favObj, category: e });
+    setFavObj({ ...favObj, venue: props.venue, category: e });
   };
 
   const categories = [
