@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import Card from "./Card";
 
 const CardRack = (props) => {
@@ -13,7 +12,6 @@ const CardRack = (props) => {
         textColor="#919100"
         cardName="Alimentação"
       />
-
       <Card
         link={`/favoritos/${props.user}/Entretenimento`}
         cardY="50"

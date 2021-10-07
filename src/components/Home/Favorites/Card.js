@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
   return (
-    <g>
-      <Link to={props.link} style={{textDecoration: "none"}}>
+    <Link to={props.link} style={{ textDecoration: "none" }}>
+      <g>
         <rect
           y={props.cardY}
           rx="20"
@@ -16,8 +16,8 @@ const Card = (props) => {
         <text x="18" y={props.textY} fill={props.textColor} className="card">
           {props.cardName}
         </text>
-      </Link>
-    </g>
+      </g>
+    </Link>
   );
 };
 
