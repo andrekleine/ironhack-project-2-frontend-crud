@@ -6,7 +6,7 @@ const Wallet = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="320"
-        height="180"
+        height="190"
         fill="#BD7755"
         viewBox="0 7 16 8"
       >

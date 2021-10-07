@@ -34,29 +34,32 @@ const Details = (props) => {
       v: "20210930",
     };
 
+    
+
     axios
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
+        const targetObj = response.data.response.venue;
         setResults({
           id: props.match.params.id,
           categoryImage:
-            response.data.response.venue.categories[0].icon.prefix +
+            targetObj.categories[0].icon.prefix +
             64 +
-            response.data.response.venue.categories[0].icon.suffix,
-          name: response.data.response.venue.name,
-          rating: response.data.response.venue.rating,
-          phone: response.data.response.venue.contact.formattedPhone,
+            targetObj.categories[0].icon.suffix,
+          name: targetObj.name,
+          rating: targetObj.rating,
+          phone: targetObj.contact.formattedPhone,
           imageSrc:
-            response.data.response.venue.bestPhoto.prefix +
+            targetObj.bestPhoto.prefix +
             "100x100" +
-            response.data.response.venue.bestPhoto.suffix,
-          tip: response.data.response.venue.tips.groups[0].items[0].text,
+            targetObj.bestPhoto.suffix,
+          tip: targetObj.tips.groups[0].items[0].text ? targetObj.tips.groups[0].items[0].text : '',
           personTip:
-            response.data.response.venue.tips.groups[0].items[0].user.firstName,
-          urlVenue: response.data.response.venue.url,
-          // priceTier: response.data.response.venue.price.tier.length ? response.data.response.venue.price.tier : '',
+            targetObj.tips.groups[0].items[0].user.firstName ? targetObj.tips.groups[0].items[0].user.firstName : "",
+          urlVenue: targetObj.url,
+          // priceTier: targetObj.price.tier.length ? targetObj.price.tier : '',
         });
-        setComments([...response.data.response.venue.tips.groups[0].items]); 
+        setComments([...targetObj.tips.groups[0].items]); 
       })
       .catch((err) => console.error(err));
   }, [props.match.params.id]);
