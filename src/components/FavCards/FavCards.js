@@ -19,8 +19,6 @@ const FavCards = (props) => {
       .catch((err) => console.error(err));
   }, [props.match.params]);
 
-  console.log(collection);
-
   return (
     <div>
       <Navbar />
