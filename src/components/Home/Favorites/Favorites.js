@@ -2,10 +2,10 @@ import React from "react";
 import CardRack from "./CardRack";
 import Wallet from "./Wallet";
 
-const Favorites = () => {
+const Favorites = (props) => {
   return (
     <div className="favorites">
-      <CardRack />      
+      <CardRack user={props.user}/>      
       <Wallet />
     </div>
   );
