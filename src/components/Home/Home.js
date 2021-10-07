@@ -10,7 +10,7 @@ const Home = (props) => {
     <div className="home">
       <Navbar />
        <SearchBar  /> 
-      <Favorites />
+      <Favorites user={props.user}/>
     </div>
   );
 };

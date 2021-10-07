@@ -35,8 +35,8 @@ const AddFav = (props) => {
   const categories = [
     "Alimentação",
     "Entretenimento",
-    "Esportes&Recreação",
-    "Profissionais&Serviços",
+    "Recreação",
+    "Serviços",
     "Diversos",
   ];
 

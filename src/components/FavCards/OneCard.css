@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.photo-container {
+    width: 30rem;    
+}
+
+.star-rating {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+.card-img-top {
+    max-width: 30rem;    
+}
