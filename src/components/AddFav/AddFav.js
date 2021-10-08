@@ -17,8 +17,6 @@ const AddFav = (props) => {
   });
   const [title, setTitle] = useState("Selecione a categoria");
 
-  console.log(favObj);
-
   const showModal = () => {
     setIsOpen(true);
   };
