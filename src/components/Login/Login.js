@@ -56,7 +56,7 @@ const Login = (props) => {
               {user}
             </Dropdown.Item>
           ))}
-        </DropdownButton>
+        </DropdownButton>        
         <button type="button" className="btn btn-primary">
           <Link to="/home" style={{ textDecoration: "none", color: "white", width:"150px" }}>
             Entrar
