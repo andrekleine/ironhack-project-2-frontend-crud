@@ -10,8 +10,6 @@ const OneCard = (props) => {
     setShowModal(!showModal);
   };
 
-  console.log(props);
-
   return (
     <div>
       <div className="card mt-1 mb-1" style={{ width: "22rem" }}>
@@ -51,12 +49,7 @@ const OneCard = (props) => {
         </div>
       </div>
       {showModal ? (
-        <DelFav
-          onClick={handleClick}
-          category={props.category}
-          id={props.id}
-          user={props.user}
-        />
+        <DelFav onClick={handleClick} category={props.category} id={props.id} />
       ) : null}
     </div>
   );

@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "./Card";
 
-const CardRack = (props) => {
+const CardRack = () => {
   return (
     <svg width="320" height="350">
       <Card
-        link={`/favoritos/${props.user}/Alimentação`}
+        link={`/favoritos/${window.name}/Alimentação`}
         cardY="0"
         cardColor="#E2E200"
         textY="36"
@@ -13,7 +13,7 @@ const CardRack = (props) => {
         cardName="Alimentação"
       />
       <Card
-        link={`/favoritos/${props.user}/Entretenimento`}
+        link={`/favoritos/${window.name}/Entretenimento`}
         cardY="50"
         cardColor="#FF5959"
         textY="86"
@@ -21,7 +21,7 @@ const CardRack = (props) => {
         cardName="Entretenimento"
       />
       <Card
-        link={`/favoritos/${props.user}/Recreação`}
+        link={`/favoritos/${window.name}/Recreação`}
         cardY="100"
         cardColor="#54CE52"
         textY="136"
@@ -29,7 +29,7 @@ const CardRack = (props) => {
         cardName="Recreação"
       />
       <Card
-        link={`/favoritos/${props.user}/Serviços`}
+        link={`/favoritos/${window.name}/Serviços`}
         cardY="150"
         cardColor="#8C7CFF"
         textY="186"
@@ -37,7 +37,7 @@ const CardRack = (props) => {
         cardName="Serviços"
       />
       <Card
-        link={`/favoritos/${props.user}/Diversos`}
+        link={`/favoritos/${window.name}/Diversos`}
         cardY="200"
         cardColor="black"
         textY="236"
