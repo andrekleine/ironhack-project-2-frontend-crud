@@ -10,7 +10,12 @@ import AddFav from "../AddFav/AddFav";
 
 
 const Details = (props) => {  
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([{
+    id:'123456789-commentID',
+    text: 'nenhuma dica aqui',
+    user:{firstName: 'no coments'}
+
+  }]);
   const [results, setResults] = useState({
     id: "",
     categoryImage: image,
@@ -40,31 +45,36 @@ const Details = (props) => {
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
+        console.log(targetObj)
         setResults({
           id: props.match.params.id,
-          categoryImage:
-            targetObj.categories[0].icon.prefix +
-            64 +
-            targetObj.categories[0].icon.suffix,
+          
           name: targetObj.name,
-          rating: targetObj.rating,
-          phone: targetObj.contact.formattedPhone,
-          imageSrc:
-            targetObj.bestPhoto.prefix +
+          rating: targetObj.rating ? targetObj.rating : 1,
+
+          imageSrc: targetObj.bestPhoto ? targetObj.bestPhoto.prefix +
             "100x100" +
-            targetObj.bestPhoto.suffix,
-          tip: targetObj.tips.groups[0].items[0].text ? targetObj.tips.groups[0].items[0].text : '',
-          personTip:
-            targetObj.tips.groups[0].items[0].user.firstName ? targetObj.tips.groups[0].items[0].user.firstName : "",
+            targetObj.bestPhoto.suffix : 'https://image.shutterstock.com/image-vector/photo-coming-soon-image-eps10-600w-86220151.jpg',
+         tip: targetObj.tips.groups.length > 0 ? targetObj.tips.groups[0].items[0].text : 'não existe',
+         categoryImage: targetObj.categories[0] > 0 ?
+         targetObj.categories[0].icon.prefix +
+         64 +
+         targetObj.categories[0].icon.suffix : image,
+
+       phone: targetObj.contact.formattedPhone,
+
+      
+          personTip: targetObj.tips.groups.length > 0 ?  targetObj.tips.groups[0].items[0].user.firstName :  "nooon",
           urlVenue: targetObj.url,
           // priceTier: targetObj.price.tier.length ? targetObj.price.tier : '',
         });
-        setComments([...targetObj.tips.groups[0].items]); 
+        setComments(targetObj.tips.groups.length > 0 ? [...targetObj.tips.groups[0].items] : comments); 
       })
       .catch((err) => console.error(err));
   }, [props.match.params.id]);
 
-  //console.log(comments)
+
+  console.log(results)
 
   return (
     <div id="all ">
