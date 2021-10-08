@@ -116,7 +116,7 @@ const Details = (props) => {
             style={{ width: 100, height: 100 }}
           />
           <Comments id={results.id} comments={comments} />
-          <AddFav venue={results} user={props.user} />
+          <AddFav venue={results} user={window.name} />
         </div>
       </div>
     </div>
