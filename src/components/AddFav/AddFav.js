@@ -17,8 +17,6 @@ const AddFav = (props) => {
   });
   const [title, setTitle] = useState("Selecione a categoria");
 
-  console.log(favObj);
-
   const showModal = () => {
     setIsOpen(true);
   };
@@ -45,7 +43,7 @@ const AddFav = (props) => {
   const handleAdd = () => {
     axios
       .post("https://ironrest.herokuapp.com/meusFavoritos", favObj)
-      .then((response) => {        
+      .then((response) => {
         history.push(`/favoritos/${props.user}/${favObj.category}`);
       })
       .catch((err) => console.error(err));

@@ -8,14 +8,14 @@ import Price from "./Price/Price";
 import Comments from "./Comments/Comments";
 import AddFav from "../AddFav/AddFav";
 
-
-const Details = (props) => {  
-  const [comments, setComments] = useState([{
-    id:'123456789-commentID',
-    text: 'nenhuma dica aqui',
-    user:{firstName: 'no coments'}
-
-  }]);
+const Details = (props) => {
+  const [comments, setComments] = useState([
+    {
+      id: "123456789-commentID",
+      text: "Ainda não há comentários de usuários",
+      user: { firstName: "" },
+    },
+  ]);
   const [results, setResults] = useState({
     id: "",
     categoryImage: image,
@@ -27,7 +27,7 @@ const Details = (props) => {
     tip: "",
     personTip: "",
     urlVenue: "",
-    user:"",
+    user: "",
     // priceTier: 0,
   });
 
@@ -39,42 +39,49 @@ const Details = (props) => {
       v: "20210930",
     };
 
-    
-
     axios
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
-        console.log(targetObj)
         setResults({
           id: props.match.params.id,
-          
+
           name: targetObj.name,
           rating: targetObj.rating ? targetObj.rating : 1,
 
-          imageSrc: targetObj.bestPhoto ? targetObj.bestPhoto.prefix +
-            "100x100" +
-            targetObj.bestPhoto.suffix : 'https://image.shutterstock.com/image-vector/photo-coming-soon-image-eps10-600w-86220151.jpg',
-         tip: targetObj.tips.groups.length > 0 ? targetObj.tips.groups[0].items[0].text : 'não existe',
-         categoryImage: targetObj.categories[0] > 0 ?
-         targetObj.categories[0].icon.prefix +
-         64 +
-         targetObj.categories[0].icon.suffix : image,
+          imageSrc: targetObj.bestPhoto
+            ? targetObj.bestPhoto.prefix +
+              "100x100" +
+              targetObj.bestPhoto.suffix
+            : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png",
+          tip:
+            targetObj.tips.groups.length > 0
+              ? targetObj.tips.groups[0].items[0].text
+              : "Ainda não há comentários de usuários",
+          categoryImage:
+            targetObj.categories[0] > 0
+              ? targetObj.categories[0].icon.prefix +
+                64 +
+                targetObj.categories[0].icon.suffix
+              : image,
 
-       phone: targetObj.contact.formattedPhone,
+          phone: targetObj.contact.formattedPhone,
 
-      
-          personTip: targetObj.tips.groups.length > 0 ?  targetObj.tips.groups[0].items[0].user.firstName :  "nooon",
+          personTip:
+            targetObj.tips.groups.length > 0
+              ? targetObj.tips.groups[0].items[0].user.firstName
+              : "nooon",
           urlVenue: targetObj.url,
           // priceTier: targetObj.price.tier.length ? targetObj.price.tier : '',
         });
-        setComments(targetObj.tips.groups.length > 0 ? [...targetObj.tips.groups[0].items] : comments); 
+        setComments(
+          targetObj.tips.groups.length > 0
+            ? [...targetObj.tips.groups[0].items]
+            : comments
+        );
       })
       .catch((err) => console.error(err));
-  }, [props.match.params.id]);
-
-
-  console.log(results)
+  }, [props.match.params.id, comments]);
 
   return (
     <div id="all ">
@@ -93,10 +100,17 @@ const Details = (props) => {
           <p>telefone: {results.phone} </p>
           <Price>{results.priceTier}</Price>
 
-          <Link to={results.urlVenue ? results.urlVenue : "www.teste.com"}>
+          <Link
+            to={
+              results.urlVenue
+                ? results.urlVenue
+                : "Este local não possui website."
+            }
+          >
             <p>Entre no site da empresa aqui =D </p>
           </Link>
-          <img className="mb-2"
+          <img
+            className="mb-2"
             src={results.imageSrc}
             alt={results.name}
             style={{ width: 100, height: 100 }}
