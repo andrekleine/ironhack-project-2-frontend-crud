@@ -12,10 +12,8 @@ const Details = (props) => {
   const [comments, setComments] = useState([
     {
       id: "123456789-commentID",
-
       text: "nenhuma dica aqui ainda",
       user: { firstName: "seja o primeiro" },
-
     },
   ]);
   const [results, setResults] = useState({
@@ -62,7 +60,6 @@ const Details = (props) => {
               ? targetObj.tips.groups[0].items[0].text
               : "não existe",
 
-
           categoryImage: targetObj.categories[0].icon.prefix
             ? targetObj.categories[0].icon.prefix +
               64 +
@@ -71,7 +68,7 @@ const Details = (props) => {
 
           phone: targetObj.contact.formattedPhone
             ? targetObj.contact.formattedPhone
-            : "Sem número cadastrado",
+            : "",
 
           personTip:
             targetObj.tips.groups.length > 0
@@ -87,23 +84,24 @@ const Details = (props) => {
         );
       })
       .catch((err) => console.error(err));
-  }, [props.match.params.id, comments]);
+  }, [props.match.params.id]);
 
   return (
     <div id="all ">
       <Navbar />
       <div className="card border-success m-2 mt-5">
-        <div className="card-body bg-success p-2 text-dark bg-opacity-10 ">
-          <div className="category">
+        <div className=" bg-success p-2 text-dark bg-opacity-10 ">
+          <div className="d-flex align-items-center">
             <img
               src={results.categoryImage}
               alt={results.name}
               style={{ width: 100, height: 100 }}
             />
+
+            <h5 className="mt-3">{results.name} </h5>
           </div>
-          <h3>{results.name} </h3>
           <Rating>{results.rating}</Rating>
-          <p>telefone: {results.phone} </p>
+          <p> {results.phone} </p>
           <Price>{results.priceTier}</Price>
 
           <Link
