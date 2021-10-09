@@ -44,25 +44,31 @@ const Login = () => {
   return (
     <div className="login">
       <h1>Meus Favoritos</h1>
-      <div className="dropdown">
-        <DropdownButton
+      <div className="dropdown"  >
+      <div style={{height:'200px', overflow:'auto', width:'190px'}} className=" mt-5" >
+        <DropdownButton 
           title={title}
           id="dropdown-button-drop"
-          onSelect={handleSelect}
-          style={{width:"200px"}}          
+          onSelect={handleSelect}  
+          style={{height:'40px'}}     
         >
           {users.map((user) => (
-            <Dropdown.Item eventKey={user} key={user} user={user}>
+            <Dropdown.Item eventKey={user} key={user} user={user} >
               {user}
             </Dropdown.Item>
           ))}
-        </DropdownButton>        
-        <button type="button" className="btn btn-primary">
-          <Link to="/home" style={{ textDecoration: "none", color: "white", width:"150px" }}>
+        </DropdownButton> 
+        </div>
+        <div>
+        <button type="button" className="btn btn-primary mt-5" style={{height:'40px', width:"100px"}}  >
+          <Link to="/home" style={{ textDecoration: "none", color: "white", width:"auto" }}>
             Entrar
           </Link>
         </button>
-      </div>
+        </div>
+        </div>       
+        
+      
       <div className="box"></div>
     </div>
   );
