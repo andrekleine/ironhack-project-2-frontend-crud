@@ -30,10 +30,10 @@ const ResultPage = (props) => {
     <div id="all">
       <Navbar />
       <div style={{ height: "50px" }}></div>
-      <div className="insideMap ">
+      <div className="container-fluid">
         {results.map((place) => {
           return (
-            <div className="container" key={place.id}>
+            <div key={place.id}>
               <ResultCard
                 name={place.name}
                 id={place.id}
