@@ -35,6 +35,7 @@ const FavCards = (props) => {
                 id={venueObj._id}
                 category={category}
                 user={user}
+                comment={venueObj.yourComment}
               />
             );
           })

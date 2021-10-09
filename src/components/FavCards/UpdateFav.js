@@ -8,9 +8,7 @@ const UpdateFav = (props) => {
   const [comment, setComment] = useState({
       yourComment:''
   })
-    console.log(comment)
-
-  console.log(props);
+console.log(props)
   const handleClick = () => {
     props.onClick();
     axios
