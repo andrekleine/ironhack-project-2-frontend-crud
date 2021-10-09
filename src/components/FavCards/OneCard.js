@@ -8,12 +8,14 @@ const OneCard = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [showModalUpdate, setShowModalUpdate] = useState(false);
 
-  const handleClick = (value) => {
-    setShowModal(!showModal);
+  const handleClick = () => {
+showModalUpdate ? setShowModal(false) : setShowModal(!showModal)
   };
-  const handleClickUpdate = (value) => {
-    setShowModalUpdate(!showModalUpdate);
+
+  const handleClickUpdate = () => {
+    showModal ? setShowModalUpdate(false) : setShowModalUpdate(!showModalUpdate)
   };
+  console.log(props)
 
   return (
     <div>
@@ -35,9 +37,10 @@ const OneCard = (props) => {
             </div>
             <div className="address">
               <Rating>{props.address}</Rating>
+              <p>{props.comment}</p>
             </div>            
             <div className="del">
-              <span onClick={handleClick}>
+              <span className="del" onClick={handleClick}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
