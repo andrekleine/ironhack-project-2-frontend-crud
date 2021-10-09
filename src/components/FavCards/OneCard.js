@@ -28,9 +28,9 @@ const OneCard = (props) => {
             <div className="rating">
               <Rating>{props.rating}</Rating>
             </div>
-            <div className="comments">
-              <p className="card-text">"{props.tip}"</p>
-            </div>
+            <div className="address">
+              <Rating>{props.address}</Rating>
+            </div>            
             <div className="del">
               <span onClick={handleClick}>
                 <svg

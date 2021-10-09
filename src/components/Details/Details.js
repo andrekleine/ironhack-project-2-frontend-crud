@@ -44,6 +44,7 @@ const Details = (props) => {
   
         setResults({
           id: props.match.params.id,
+          address: targetObj.address,
 
           name: targetObj.name,
           rating: targetObj.rating ? targetObj.rating : 11,
