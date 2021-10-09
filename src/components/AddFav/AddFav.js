@@ -11,7 +11,7 @@ import axios from "axios";
 const AddFav = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [favObj, setFavObj] = useState({
-    user: props.user,
+    user: window.name,
     category: "",
     venue: props.venue,
   });
@@ -43,8 +43,8 @@ const AddFav = (props) => {
   const handleAdd = () => {
     axios
       .post("https://ironrest.herokuapp.com/meusFavoritos", favObj)
-      .then((response) => {        
-        history.push(`/favoritos/${props.user}/${favObj.category}`);
+      .then((response) => {
+        history.push(`/favoritos/${window.name}/${favObj.category}`);
       })
       .catch((err) => console.error(err));
   };

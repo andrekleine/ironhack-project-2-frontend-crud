@@ -12,8 +12,10 @@ const Details = (props) => {
   const [comments, setComments] = useState([
     {
       id: "123456789-commentID",
+
       text: "nenhuma dica aqui ainda",
       user: { firstName: "seja o primeiro" },
+
     },
   ]);
   const [results, setResults] = useState({
@@ -44,7 +46,6 @@ const Details = (props) => {
       .then((response) => {
         const targetObj = response.data.response.venue;
 
-        console.log(targetObj);
         setResults({
           id: props.match.params.id,
 
@@ -60,6 +61,7 @@ const Details = (props) => {
             targetObj.tips.groups.length > 0
               ? targetObj.tips.groups[0].items[0].text
               : "não existe",
+
 
           categoryImage: targetObj.categories[0].icon.prefix
             ? targetObj.categories[0].icon.prefix +
@@ -85,9 +87,7 @@ const Details = (props) => {
         );
       })
       .catch((err) => console.error(err));
-  }, [props.match.params.id]);
-
-  console.log(results);
+  }, [props.match.params.id, comments]);
 
   return (
     <div id="all ">
@@ -106,7 +106,13 @@ const Details = (props) => {
           <p>telefone: {results.phone} </p>
           <Price>{results.priceTier}</Price>
 
-          <Link to={results.urlVenue ? results.urlVenue : "www.teste.com"}>
+          <Link
+            to={
+              results.urlVenue
+                ? results.urlVenue
+                : "Este local não possui website."
+            }
+          >
             <p>Entre no site da empresa aqui =D </p>
           </Link>
           <img
@@ -116,7 +122,7 @@ const Details = (props) => {
             style={{ width: 100, height: 100 }}
           />
           <Comments id={results.id} comments={comments} />
-          <AddFav venue={results} user={props.user} />
+          <AddFav venue={results} user={window.name} />
         </div>
       </div>
     </div>

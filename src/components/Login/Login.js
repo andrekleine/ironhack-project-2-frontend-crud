@@ -6,7 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Login = (props) => {
+const Login = () => {
   const [title, setTitle] = useState('Escolha o usuário');
 
   const users = [
@@ -37,8 +37,8 @@ const Login = (props) => {
   ];
 
   const handleSelect = (e) => {
-    setTitle(e);
-    props.setUser(e);
+    setTitle(e);    
+    window.name = e;
   };
 
   return (
@@ -56,7 +56,7 @@ const Login = (props) => {
               {user}
             </Dropdown.Item>
           ))}
-        </DropdownButton>
+        </DropdownButton>        
         <button type="button" className="btn btn-primary">
           <Link to="/home" style={{ textDecoration: "none", color: "white", width:"150px" }}>
             Entrar
