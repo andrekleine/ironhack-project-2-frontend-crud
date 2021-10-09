@@ -12,13 +12,15 @@ const Details = (props) => {
   const [comments, setComments] = useState([
     {
       id: "123456789-commentID",
-      text: "Ainda não há comentários de usuários",
-      user: { firstName: "" },
+
+      text: "nenhuma dica aqui ainda",
+      user: { firstName: "seja o primeiro" },
+
     },
   ]);
   const [results, setResults] = useState({
     id: "",
-    categoryImage: image,
+    categoryImage: { image },
     name: "",
     rating: 10,
     phone: "+55 11 998888888",
@@ -43,36 +45,40 @@ const Details = (props) => {
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
+
         setResults({
           id: props.match.params.id,
 
           name: targetObj.name,
-          rating: targetObj.rating ? targetObj.rating : 1,
+          rating: targetObj.rating ? targetObj.rating : 11,
 
           imageSrc: targetObj.bestPhoto
             ? targetObj.bestPhoto.prefix +
               "100x100" +
               targetObj.bestPhoto.suffix
-            : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png",
+            : "https://image.shutterstock.com/image-vector/photo-coming-soon-image-eps10-600w-86220151.jpg",
           tip:
             targetObj.tips.groups.length > 0
               ? targetObj.tips.groups[0].items[0].text
-              : "Ainda não há comentários de usuários",
-          categoryImage:
-            targetObj.categories[0] > 0
-              ? targetObj.categories[0].icon.prefix +
-                64 +
-                targetObj.categories[0].icon.suffix
-              : image,
+              : "não existe",
 
-          phone: targetObj.contact.formattedPhone,
+
+          categoryImage: targetObj.categories[0].icon.prefix
+            ? targetObj.categories[0].icon.prefix +
+              64 +
+              targetObj.categories[0].icon.suffix
+            : image,
+
+          phone: targetObj.contact.formattedPhone
+            ? targetObj.contact.formattedPhone
+            : "Sem número cadastrado",
 
           personTip:
             targetObj.tips.groups.length > 0
               ? targetObj.tips.groups[0].items[0].user.firstName
               : "nooon",
           urlVenue: targetObj.url,
-          // priceTier: targetObj.price.tier.length ? targetObj.price.tier : '',
+          priceTier: targetObj.price ? targetObj.price.tier : "",
         });
         setComments(
           targetObj.tips.groups.length > 0
@@ -87,7 +93,7 @@ const Details = (props) => {
     <div id="all ">
       <Navbar />
       <div className="card border-success m-2 mt-5">
-        <div className="card-body bg-warning p-2 text-dark bg-opacity-10 ">
+        <div className="card-body bg-success p-2 text-dark bg-opacity-10 ">
           <div className="category">
             <img
               src={results.categoryImage}
