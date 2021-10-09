@@ -29,7 +29,7 @@ const OneCard = (props) => {
               alt="..."
             />
           </div>
-          <div className="card-body">
+          <div className="card-body information">
             <div className="rating">
               <Rating>{props.rating}</Rating>
             </div>
