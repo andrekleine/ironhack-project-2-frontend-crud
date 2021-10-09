@@ -27,6 +27,7 @@ const Details = (props) => {
     urlVenue: "",
     user: "",
     priceTier: '',
+    comments: [],
   });
 
   useEffect(() => {
@@ -75,20 +76,27 @@ const Details = (props) => {
               : "nooon",
           urlVenue: targetObj.url,
           priceTier: targetObj.price ? targetObj.price.tier : "",
+          comments: targetObj.tips.groups.length > 0 ? targetObj.tips.groups[0].items : [
+            {
+              id: "123456789-commentID",
+              text: "nenhuma dica aqui ainda",
+              user: { firstName: "seja o primeiro" },
+            },
+          ],
         });
-        setComments(
-          targetObj.tips.groups.length > 0
-            ? [...targetObj.tips.groups[0].items]
-            : comments
-        );
+
       })
       .catch((err) => console.error(err));
   }, [props.match.params.id]);
 
+  useEffect(() => {
+    setComments(results.comments);
+  }, [results]);
+
   return (
     <div id="all ">
       <Navbar />
-      <div className="card border-success m-2 mt-5">
+      <div className="m-2 mt-5">
         <div className=" bg-success p-2 text-dark bg-opacity-10 ">
           <div className="d-flex align-items-center">
             <img
