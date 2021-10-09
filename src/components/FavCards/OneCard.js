@@ -15,7 +15,7 @@ showModalUpdate ? setShowModal(false) : setShowModal(!showModal)
   const handleClickUpdate = () => {
     showModal ? setShowModalUpdate(false) : setShowModalUpdate(!showModalUpdate)
   };
-  console.log(props)
+
 
   return (
     <div className="container-fluid">

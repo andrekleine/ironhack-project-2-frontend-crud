@@ -15,10 +15,7 @@
 
 .dropdown {    
     display: flex;
-    flex-direction: column;    
-    margin-top: 10px;
-    height: 100px;
-}
+    }
 
 .box {
     padding-bottom: 100vh;
