@@ -28,6 +28,7 @@ const Details = (props) => {
     personTip: "",
     urlVenue: "",
     user: "",
+    address: "",
     // priceTier: 0,
   });
 
@@ -45,6 +46,7 @@ const Details = (props) => {
         const targetObj = response.data.response.venue;
         setResults({
           id: props.match.params.id,
+          address: targetObj.address,
 
           name: targetObj.name,
           rating: targetObj.rating ? targetObj.rating : 1,

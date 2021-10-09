@@ -7,12 +7,13 @@
 .card {
     display: flex;
     flex-direction: column;
+    height: 200px;
 }
 
 .title {
     display: flex;
     justify-content: center;
-    height: 30px;
+    height: 35px;
 }
 
 h5 {
@@ -21,14 +22,16 @@ h5 {
 
 .photo-container {
     height: 150px;
+    width: 150px;
     margin-left: 7px;    
     /* border: solid 1px red; */
 }
 
 .card-body {
-    height: 150px;    
-    /* border: solid 1px orange; */
+    height: 150px;        
     padding: 0 7px;
+    position: relative;
+    /* border: solid 1px orange; */
 }
 
 .rating {
@@ -39,13 +42,11 @@ h5 {
     max-height: 150px;    
 }
 
-.comments {    
-    margin-bottom: 50px;
-    /* border: solid 1px yellow;     */
-}
-
 .del {
     display: flex;
     justify-content:right;
-    /* border: solid 1px red;     */
+    /* border: solid 1px red; */
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
 }

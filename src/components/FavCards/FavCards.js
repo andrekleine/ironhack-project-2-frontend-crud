@@ -30,7 +30,7 @@ const FavCards = (props) => {
                 key={venueObj._id}
                 image={targetObj.imageSrc}
                 name={targetObj.name}
-                tip={targetObj.tip}
+                address={targetObj.address}
                 rating={targetObj.rating}
                 id={venueObj._id}
                 category={category}

@@ -3,8 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 
 const DelFav = (props) => {
-  const history = useHistory();
-  console.log(props.category);
+  const history = useHistory();  
 
   const handleClick = () => {
     props.onClick();
