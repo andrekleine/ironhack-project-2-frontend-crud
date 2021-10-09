@@ -24,11 +24,9 @@ const Details = (props) => {
     phone: "+55 11 998888888",
     imageSrc:
       "https://image.shutterstock.com/image-vector/photo-coming-soon-image-eps10-600w-86220151.jpg",
-    tip: "",
-    personTip: "",
     urlVenue: "",
     user: "",
-    // priceTier: 0,
+    priceTier: '',
   });
 
   useEffect(() => {
@@ -43,7 +41,7 @@ const Details = (props) => {
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
-
+  
         setResults({
           id: props.match.params.id,
 
