@@ -4,7 +4,7 @@ import axios from "axios";
 import "./ResultPage.css";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
-import CardComment from "../Card/CardComment";
+import CardResult from "../Card/CardResult";
 
 const ResultPage = (props) => {
   const [results, setResults] = useState([]);
@@ -40,7 +40,7 @@ const ResultPage = (props) => {
                 style={{ textDecoration: "none" }}
                 className="container-fluid"
               >
-                <CardComment
+                <CardResult
                   title={x.name}
                   text1={x.location.address}
                   text2={x.location.city}
