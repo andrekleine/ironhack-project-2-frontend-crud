@@ -16,15 +16,15 @@ const OneCard = (props) => {
   };
 
   return (
-    <div>
-      <div className="card mt-1 mb-1" style={{ width: "22rem" }}>
+    <div className="container-fluid">
+      <div className="card mt-1 mb-1">
         <div className="title">
           <h5 className="card-title mb-0">{props.name}</h5>
         </div>
         <div className="info">
-          <div className="photo-container">
+          <div className="one-container">
             <img
-              className="card-img-top img-fluid"
+              className="card-img-top img-fluid one-img"
               src={props.image}
               alt="..."
             />

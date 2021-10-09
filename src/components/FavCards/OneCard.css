@@ -20,7 +20,7 @@ h5 {
     font-size: 21px;
 }
 
-.photo-container {
+.one-container {
     height: 150px;
     width: 150px;
     margin-left: 7px;    
@@ -35,7 +35,7 @@ h5 {
     /* border: solid 1px orange; */
 }
 
-.card-img-top {    
+.one-img {    
     max-height: 150px;    
 }
 
