@@ -51,7 +51,7 @@ const AddFav = (props) => {
 
   return (
     <div>
-      <button onClick={showModal}>Add to your fav</button>
+      <button type="button" className="btn btn-primary" onClick={showModal}>Adicionar aos Favoritos</button>
       <Modal show={isOpen} onHide={hideModal}>
         <Modal.Body>
           <div className="dropdown">
@@ -70,8 +70,8 @@ const AddFav = (props) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={hideModal}>return</button>
-          <button onClick={handleAdd}>Add</button>
+          <button type="button" className="btn btn-light" onClick={hideModal}>Voltar</button>
+          <button type="button" className="btn btn-success" onClick={handleAdd}>Adicionar!</button>
         </Modal.Footer>
       </Modal>
     </div>

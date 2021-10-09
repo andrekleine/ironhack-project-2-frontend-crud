@@ -37,7 +37,7 @@ const ResultPage = (props) => {
               <ResultCard
                 name={place.name}
                 id={place.id}
-                category={place.categories[0].shortName}
+                category={place.categories[0]? place.categories[0].shortName : ""}
                 address={place.location.address}
                 city={place.location.city}
                 country={place.location.country}

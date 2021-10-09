@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../Navbar";
 import image from "./categoryImagePlaceHolder.png";
 import Rating from "./Rating/Rating";
-import { Link } from "react-router-dom";
+import "./Details.css";
 import Price from "./Price/Price";
 import Comments from "./Comments/Comments";
 import AddFav from "../AddFav/AddFav";
@@ -26,7 +26,7 @@ const Details = (props) => {
       "https://image.shutterstock.com/image-vector/photo-coming-soon-image-eps10-600w-86220151.jpg",
     urlVenue: "",
     user: "",
-    priceTier: '',
+    priceTier: "",
     comments: [],
   });
 
@@ -42,11 +42,10 @@ const Details = (props) => {
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
-  
+
         setResults({
           id: props.match.params.id,
-          address: targetObj.address,
-
+          address: targetObj.location ? targetObj.location : "",
           name: targetObj.name,
           rating: targetObj.rating ? targetObj.rating : 11,
 
@@ -76,15 +75,17 @@ const Details = (props) => {
               : "nooon",
           urlVenue: targetObj.url,
           priceTier: targetObj.price ? targetObj.price.tier : "",
-          comments: targetObj.tips.groups.length > 0 ? targetObj.tips.groups[0].items : [
-            {
-              id: "123456789-commentID",
-              text: "nenhuma dica aqui ainda",
-              user: { firstName: "seja o primeiro" },
-            },
-          ],
+          comments:
+            targetObj.tips.groups.length > 0
+              ? targetObj.tips.groups[0].items
+              : [
+                  {
+                    id: "123456789-commentID",
+                    text: "nenhuma dica aqui ainda",
+                    user: { firstName: "seja o primeiro" },
+                  },
+                ],
         });
-
       })
       .catch((err) => console.error(err));
   }, [props.match.params.id]);
@@ -93,41 +94,26 @@ const Details = (props) => {
     setComments(results.comments);
   }, [results]);
 
+  
   return (
-    <div id="all ">
+    <div>
       <Navbar />
-      <div className="m-2 mt-5">
-        <div className=" bg-success p-2 text-dark bg-opacity-10 ">
-          <div className="d-flex align-items-center">
-            <img
-              src={results.categoryImage}
-              alt={results.name}
-              style={{ width: 100, height: 100 }}
-            />
-
-            <h5 className="mt-3">{results.name} </h5>
-          </div>
-          <Rating>{results.rating}</Rating>
-          <p> {results.phone} </p>
-          <Price>{results.priceTier}</Price>
-
-          <Link
-            to={
-              results.urlVenue
-                ? results.urlVenue
-                : "Este local não possui website."
-            }
-          >
-            <p>Entre no site da empresa aqui =D </p>
-          </Link>
+      <div className="container-fluid detail-cont">
+        <div className="card detail-card">
           <img
-            className="mb-2"
+            className="card-img-top img-fluid detail-img"
             src={results.imageSrc}
-            alt={results.name}
-            style={{ width: 100, height: 100 }}
+            alt="..."
           />
-          <Comments id={results.id} comments={comments} />
-          <AddFav venue={results} user={window.name} />
+          <div className="card-body detail-body">
+            <h1 className="card-title">{results.name}</h1>
+            <Rating>{results.rating}</Rating>
+            <Price>{results.priceTier}</Price>            
+            <p className="card-text address">{results.address ? results.address.address : ""} - {results.address ? results.address.city : ""} - {results.address ? results.address.country : ""}</p>
+            <p className="card-text address">{results.phone}</p>
+            <Comments id={results.id} comments={comments} />
+            <AddFav venue={results} user={window.name} />
+          </div>
         </div>
       </div>
     </div>
