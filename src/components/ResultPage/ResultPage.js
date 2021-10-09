@@ -2,13 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ResultPage.css";
-import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
-import CardResult from "../Card/CardResult";
+import ResultCard from "./ResultCard";
 
 const ResultPage = (props) => {
   const [results, setResults] = useState([]);
-    
+
   useEffect(() => {
     const endPoint = "https://api.foursquare.com/v2/venues/search?";
     const param = {
@@ -32,33 +31,21 @@ const ResultPage = (props) => {
       <Navbar />
       <div style={{ height: "50px" }}></div>
       <div className="insideMap ">
-        {results.map((x) => {
+        {results.map((place) => {
           return (
-            <div key={x.id}>
-              <Link
-                to={`/details/${x.id}`}
-                style={{ textDecoration: "none" }}
-                className="container-fluid"
-              >
-                <CardResult
-                  title={x.name}
-                  text1={x.location.address}
-                  text2={x.location.city}
-                />
-              </Link>
+            <div className="container" key={place.id}>
+              <ResultCard
+                name={place.name}
+                id={place.id}
+                category={place.categories[0].shortName}
+                address={place.location.address}
+                city={place.location.city}
+                country={place.location.country}
+              />
             </div>
           );
         })}
       </div>
-      <Link to={`/add-local`}>
-        <div className="position-fixed top-100 start-50 translate-middle mb-5 container-fluid">
-          <div className="card border-success mb-4">
-            <div className="card-body bg-warning p-0 text-dark bg-opacity-50">
-              <h5 className="card-title">Adicionar novo local + </h5>
-            </div>
-          </div>
-        </div>
-      </Link>
     </div>
   );
 };

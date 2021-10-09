@@ -31,7 +31,7 @@ showModalUpdate ? setShowModal(false) : setShowModal(!showModal)
               alt="..."
             />
           </div>
-          <div className="card-body">
+          <div className="card-body information">
             <div className="rating">
               <Rating>{props.rating}</Rating>
             </div>

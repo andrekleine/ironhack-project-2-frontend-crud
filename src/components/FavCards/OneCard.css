@@ -27,7 +27,8 @@ h5 {
     /* border: solid 1px red; */
 }
 
-.card-body {
+.information {
+    margin-left: 5px;
     height: 150px;        
     padding: 0 7px;
     position: relative;
@@ -43,7 +44,7 @@ h5 {
     justify-content:right;
     /* border: solid 1px red; */
     position: absolute;
-    bottom: 1px;
+    bottom: 0px;
     right: 5px;
 }
 
@@ -52,6 +53,6 @@ h5 {
     justify-content:right;
     /* border: solid 1px red; */
     position: absolute;
-    bottom: 28px;
-    right: 5px;
+    bottom: 0px;
+    right: 35px;
 }
