@@ -1,37 +1,87 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SearchBar = () => {
   const [keyWord, setKeyword] = useState({
-    query: "",
     near: "",
+    query: "",
   });
 
-  const validationForm = () => {
-   let numbers = '0123456789';
-   let x = numbers.indexOf(keyWord.near);
-   let y = x >= 0 ? 'border-danger form-control' : 'form-control';
-   return y;
-  }; 
-  
+  const [touched, setTouched] = useState({
+    near: false,
+    query: false,
+  });
+
+  const defineBorderNear = (touched) => {
+    let x = touched ? "border-danger form-control" : "form-control";
+    return x;
+  };
+  const defineBorderQuery = (touched) => {
+    let x = touched ? "border-danger form-control" : "form-control";
+    return x;
+  };
+
+  const schemaValidation = {
+    near: [
+      {
+        validation: keyWord.near.length < 4,
+      },
+    ],
+    query: [
+      {
+        validation: keyWord.near.length < 4,
+      },
+    ],
+  };
+
+  const handleBlurNear = (event) => {
+    const { name } = event.target;
+
+    if (schemaValidation.near[0].validation) {
+      setTouched({ ...touched, [name]: true });
+    } else {
+      setTouched({ ...touched, [name]: false });
+    }
+  };
+
+  const handleBlurQuery = (event) => {
+    const { name } = event.target;
+
+    if (schemaValidation.query[0].validation) {
+      setTouched({ ...touched, [name]: true });
+    } else {
+      setTouched({ ...touched, [name]: false });
+    }
+  };
+  useEffect(() => {
+    defineBorderNear();
+    defineBorderQuery();
+  }, [touched]);
+
   return (
     <div className="search-bar">
       <label>Encontre os melhores produtos e serviços:</label>
       <form className="form">
         <input
           type="text"
-          className={validationForm()}
+          className={defineBorderNear(touched.near)}
           id="localidade"
+          name="near"
           placeholder="Localidade"
           onChange={(e) => setKeyword({ ...keyWord, near: e.target.value })}
+          onBlur={handleBlurNear}
         />
+
         <input
           type="text"
-          className="form-control"
+          className={defineBorderQuery(touched.query)}
+          name="query"
           id="produtoouservico"
           placeholder="Produto ou serviço"
           onChange={(e) => setKeyword({ ...keyWord, query: e.target.value })}
+          onBlur={handleBlurQuery}
         />
+
         <Link
           to={{
             pathname: "/result-page",
