@@ -25,7 +25,7 @@ const ResultPage = (props) => {
       })
       .catch((err) => console.error(err));
   }, [props.location.state.near, props.location.state.query]);
-
+  console.log(results[0].name)
   return (
     <div id="all">
       <Navbar />
