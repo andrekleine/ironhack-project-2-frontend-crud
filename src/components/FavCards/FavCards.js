@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
+import Favbar from "./Favbar";
 import OneCard from "./OneCard";
 
 const FavCards = (props) => {
@@ -16,12 +17,13 @@ const FavCards = (props) => {
         setCollection([...response.data]);
       })
       .catch((err) => console.error(err));
-  }, [category, user]);
+  }, [category, user]);  
 
   return (
     <div>
       <Navbar />
-      <div className="container mt-5">
+      <Favbar category={category}/>
+      <div className="container-fluid" style={{marginTop: "100px"}}>
         {collection.length ? (
           collection.map((venueObj) => {
             const targetObj = venueObj.venue;
