@@ -92,7 +92,7 @@ const SearchBar = () => {
             type="submit"
             className="btn btn-primary submit"
             style={{ width: "100px" }}
-            disabled={keyWord.near.length || !keyWord.query.length}
+            disabled={!keyWord.near.length || !keyWord.query.length}
           >
             Enviar
           </button>
