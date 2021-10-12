@@ -1,11 +1,24 @@
-import React from "react";
+import colors from './favbar.json';
 
 const Favbar = (props) => {
+  const obj = colors.find((o) => o.cat === props.category);
+  const bgColor = obj.bg;
+  const fontColor = obj.font;
+  
   return (
-    <nav className="navbar fixed-top" style={{display: "flex", justifyContent:"center", backgroundColor:{props.color}}}>
-      <Link to="/Home" style={{textDecoration:"none", color:"white"}}>
-        <h2>Meus Favoritos</h2>
-      </Link>
+    <nav
+      className="navbar fixed-top favbar"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "45px",
+        backgroundColor: bgColor,
+        color: fontColor,
+        fontFamily: 'Lato'
+        
+      }}
+    >
+      <h2>{props.category}</h2>
     </nav>
   );
 };
