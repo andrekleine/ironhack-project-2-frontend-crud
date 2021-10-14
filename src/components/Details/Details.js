@@ -33,19 +33,20 @@ const Details = (props) => {
   useEffect(() => {
     const endPoint = `https://api.foursquare.com/v2/venues/${props.match.params.id}?`;
     const parameters = {
-      client_id: "DQCEDNDNFU2MTEZYJA54SQWTMAGVF55RVTJWPZB4G1EM5BEE",
-      client_secret: "XRZZLSD0DFBCCBP2TRLG1UZTOUAWTUY5ANRMAATAV2ABOV0I",
-      v: "20210930",
+      client_id: "RQC4IDOHUHLUA1USD31JQPHKLURB1GF4NSAWXVT5SEEMVSTB",
+      client_secret: "JKSLBZ5WIKMBUMSHBPESZZEVHRTMYTJRGJ3JQF1OM52LV242",
+      v: "20211014",
     };
 
     axios
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
-
+        let x = targetObj.location.formattedAddress.join(', ')
+        console.log(x)
         setResults({
           id: props.match.params.id,
-          address: targetObj.location ? targetObj.location : "",
+          address: targetObj.location ? targetObj.location.formattedAddress.join(',') : "",
           name: targetObj.name,
           rating: targetObj.rating ? targetObj.rating : 11,
 

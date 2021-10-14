@@ -37,7 +37,7 @@ const UpdateFav = (props) => {
           <Button onClick={props.onClick} variant="light">
             Não quero
           </Button>
-          <Button onClick={handleClick} variant="danger">
+          <Button onClick={handleClick} variant="danger" >
             Adicionar
           </Button>
         </Modal.Footer>

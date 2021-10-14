@@ -51,8 +51,34 @@ h5 {
 .edit {
     display: flex;
     justify-content:right;
-    /* border: solid 1px red; */
     position: absolute;
     bottom: 0px;
     right: 35px;
+    height: 40px;
 }
+.edit > p{
+/*     border: 2px solid green; */
+
+}
+/* .btn{
+    display: flex;
+    justify-content:left;
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+    height: 40px;
+    width: 120px;
+}
+.btn > p{
+    padding-top: 10;
+    height: 4;
+    display: flex;
+    justify-content:left;
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    height: 40px;
+    width: 100px;
+    padding: 0;
+}
+ */
