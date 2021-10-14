@@ -20,8 +20,6 @@ const FavCards = (props) => {
       .catch((err) => console.error(err));
   }, [category, user]);
 
-  // console.log(collection);
-
   return (
     <div>
       <Navbar />
@@ -49,9 +47,10 @@ const FavCards = (props) => {
             );
           })
         ) : (
-          <div style={{margin:"3rem"}}>
+          <div style={{ margin: "3rem" }}>
             <h1 style={{ fontFamily: "Lato", fontSize: "32px" }}>
-              Você ainda não adicionou favoritos a esta categoria... que tal<Link to="/home"> buscar</Link> algum?
+              Você ainda não adicionou favoritos a esta categoria... que tal
+              <Link to="/home"> buscar</Link> algum?
             </h1>
           </div>
         )}
