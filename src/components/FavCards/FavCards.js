@@ -17,13 +17,15 @@ const FavCards = (props) => {
         setCollection([...response.data]);
       })
       .catch((err) => console.error(err));
-  }, [category, user]);  
+  }, [category, user]);
+
+// console.log(collection);
 
   return (
     <div>
       <Navbar />
-      <Favbar category={category}/>
-      <div className="container-fluid" style={{marginTop: "100px"}}>
+      <Favbar category={category} />
+      <div className="container-fluid" style={{ marginTop: "100px" }}>
         {collection.length ? (
           collection.map((venueObj) => {
             const targetObj = venueObj.venue;
@@ -33,11 +35,15 @@ const FavCards = (props) => {
                 image={targetObj.imageSrc}
                 name={targetObj.name}
                 address={targetObj.address}
+                city={targetObj.city}
+                country={targetObj.country}
                 rating={targetObj.rating}
                 id={venueObj._id}
                 category={category}
                 user={user}
                 comment={venueObj.yourComment}
+                phone={targetObj.phone}
+                priceTier={targetObj.priceTier}
               />
             );
           })
