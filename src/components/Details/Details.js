@@ -28,6 +28,9 @@ const Details = (props) => {
     user: "",
     priceTier: "",
     comments: [],
+    address: "",
+    city: "",
+    country: "",
   });
 
   useEffect(() => {
@@ -42,10 +45,13 @@ const Details = (props) => {
       .get(endPoint + new URLSearchParams(parameters))
       .then((response) => {
         const targetObj = response.data.response.venue;
+        const location = targetObj.location;
 
         setResults({
           id: props.match.params.id,
-          address: targetObj.location ? targetObj.location : "",
+          address: location ? location.address : "",
+          city: location ? location.city : "",
+          country: location ? location.country : "",
           name: targetObj.name,
           rating: targetObj.rating ? targetObj.rating : 11,
 
@@ -94,7 +100,6 @@ const Details = (props) => {
     setComments(results.comments);
   }, [results]);
 
-  
   return (
     <div>
       <Navbar />
@@ -108,9 +113,13 @@ const Details = (props) => {
           <div className="card-body detail-body">
             <h1 className="card-title">{results.name}</h1>
             <Rating>{results.rating}</Rating>
-            <Price>{results.priceTier}</Price>            
-            <p className="card-text address">{results.address ? results.address.address : ""} - {results.address ? results.address.city : ""} - {results.address ? results.address.country : ""}</p>
-            <p className="card-text address">{results.phone}</p>
+            <Price>{results.priceTier}</Price>
+            <p className="card-text detail-address">
+              {results.address ? results.address : ""} -{" "}
+              {results.address ? results.city : ""} -{" "}
+              {results.address ? results.country : ""}
+            </p>
+            <p className="card-text detail-address">{results.phone}</p>
             <Comments id={results.id} comments={comments} />
             <AddFav venue={results} user={window.name} />
           </div>

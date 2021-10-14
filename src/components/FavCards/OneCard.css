@@ -4,16 +4,17 @@
     box-sizing: border-box;
 }
 
-.card {
+.one-card, .addresss, .one-rating-price {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    align-items: center;
+    height: auto;
 }
 
 .title {
     display: flex;
     justify-content: center;
-    height: 35px;
+    height: auto;
 }
 
 h5 {
@@ -22,37 +23,44 @@ h5 {
 
 .one-container {
     height: 150px;
-    width: 150px;
-    margin-left: 7px;    
-    /* border: solid 1px red; */
+    width: 150px;    
 }
 
 .information {
-    margin-left: 5px;
-    height: 150px;        
-    padding: 0 7px;
-    position: relative;
-    /* border: solid 1px orange; */
+    padding: 0;
+    width: 9.5rem;
+    position: relative;    
 }
 
 .one-img {    
     max-height: 150px;    
 }
 
-.del {
-    display: flex;
-    justify-content:right;
-    /* border: solid 1px red; */
+.one-rating {
     position: absolute;
-    bottom: 2px;
+    left: 2px;
+}
+
+.one-price {
+    position: absolute;
+    left: 2px;
+    top: 45px;
+}
+
+.one-comment {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+}
+
+.del {
+    position: absolute;
+    bottom: 3px;
     right: 5px;
 }
 
-.edit {
-    display: flex;
-    justify-content:right;
-    /* border: solid 1px red; */
+.add-comment {
     position: absolute;
-    bottom: 0px;
-    right: 35px;
+    bottom: 6px;
+    left: 10px;
 }
