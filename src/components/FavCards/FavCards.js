@@ -24,7 +24,7 @@ const FavCards = (props) => {
     <div>
       <Navbar />
       <Favbar category={category} />
-      <div className="container-fluid" style={{ marginTop: "8rem" }}>
+      <div className="container-fluid" style={{ marginTop: "100px" }}>
         {collection.length ? (
           collection.map((venueObj) => {
             const targetObj = venueObj.venue;

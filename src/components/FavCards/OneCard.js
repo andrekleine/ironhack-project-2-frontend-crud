@@ -24,7 +24,7 @@ const OneCard = (props) => {
 
   return (
     <div className="container-fluid">
-      <div className="card mt-1 mb-1 one-card">
+      <div className="card one-card" style={{marginTop:"11px"}}>
         <div className="title">
           <h5 className="card-title mb-0">{props.name}</h5>
         </div>
