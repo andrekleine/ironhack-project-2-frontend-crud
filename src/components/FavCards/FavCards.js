@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Favbar from "./Favbar";
 import OneCard from "./OneCard";
@@ -19,13 +20,11 @@ const FavCards = (props) => {
       .catch((err) => console.error(err));
   }, [category, user]);
 
-// console.log(collection);
-
   return (
     <div>
       <Navbar />
       <Favbar category={category} />
-      <div className="container-fluid" style={{ marginTop: "100px" }}>
+      <div className="container-fluid" style={{ marginTop: "8rem" }}>
         {collection.length ? (
           collection.map((venueObj) => {
             const targetObj = venueObj.venue;
@@ -48,7 +47,12 @@ const FavCards = (props) => {
             );
           })
         ) : (
-          <h1>Voce ainda nao adicionou Favoritos a esta categoria</h1>
+          <div style={{ margin: "3rem" }}>
+            <h1 style={{ fontFamily: "Lato", fontSize: "32px" }}>
+              Você ainda não adicionou favoritos a esta categoria... que tal
+              <Link to="/home"> buscar</Link> algum?
+            </h1>
+          </div>
         )}
       </div>
     </div>
