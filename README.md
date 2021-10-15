@@ -1,22 +1,20 @@
 # App Meus Favoritos
 
-Meus Favoritos é o app ideal para guardar em sua "carteira" aqueles lugares, produtos e serviços que você tanto gosta e dos quais não quer esquecer (ou quer lembrar!) sempre que precisar recorrer a qualquer um deles.
-
-## Começando
-
-Os arquivos de desenvolvimento do app encontram-se nesta pasta, e em subpastas divididas por componentes.
+Meus Favoritos é o app ideal para guardar em sua "carteira" aqueles lugares, produtos e serviços que você tanto gosta e dos quais não quer esquecer (ou quer sempre lembrar!), sempre que precisar recorrer a um deles.
 
 ### Pré-requisitos
 
-Para utilizá-lo, basta acessá-lo em um celular com acesso à internet.
+Basta acessá-lo em um celular com acesso à internet.
 
 ### Como utilizar
 
 Para utilizá-lo, basta acessar https://meus-favoritos.netlify.app/
 
+<span>
 <img src="https://github.com/andrekleine/ironhack-project-2-frontend-crud/blob/main/src/components/AppImgs/Captura%20de%20Tela%202021-10-15%20%C3%A0s%2015.15.03.png" alt="app screen" height="450"/>
 <img src="https://github.com/andrekleine/ironhack-project-2-frontend-crud/blob/main/src/components/AppImgs/Captura%20de%20Tela%202021-10-15%20%C3%A0s%2015.14.35.png" alt="app screen" height="450"/>
 <img src="https://github.com/andrekleine/ironhack-project-2-frontend-crud/blob/main/src/components/AppImgs/Captura%20de%20Tela%202021-10-15%20%C3%A0s%2014.53.03.png" alt="app screen" height="450"/>
+</span>
 
 ## Built with
 
