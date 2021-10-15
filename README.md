@@ -14,7 +14,7 @@ Para utilizá-lo, basta acessá-lo em um celular com acesso à internet.
 
 Para utilizá-lo, basta acessar https://meus-favoritos.netlify.app/
 
-![Image of app](https://drive.google.com/file/d/1U1jzL2jg2VbRwTXaEZ7rtZH-OYuIG5pH/view?usp=sharing)
+![Image of app](https://photos.google.com/album/AF1QipMm9gu9nRiRb3ns8ebPYi2s6HaWbB2DQZPGoTH6/photo/AF1QipNeL8HrZg9etXFcGNxkPpiADLzWf8gx-wkDlvdm)
 
 ## Built with
 
