@@ -18,6 +18,9 @@ Para utilizá-lo, basta acessar https://meus-favoritos.netlify.app/
 
 ## Feito com
 * ReactJS 17.0.2
+* Foursquare: API findPlaces
+* Ironhack: Mongo Rest API
+
 
 ### Bibliotecas externas: "@testing-library/jest-dom": "^5.14.1",
 * axios 0.21.4
