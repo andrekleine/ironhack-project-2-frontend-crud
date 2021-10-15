@@ -14,7 +14,7 @@ Para utilizá-lo, basta acessá-lo em um celular com acesso à internet.
 
 Para utilizá-lo, basta acessar https://meus-favoritos.netlify.app/
 
-<img src="https://github.com/andrekleine/ironhack-project-2-frontend-crud/blob/main/src/components/AppImgs/Captura%20de%20Tela%202021-10-15%20%C3%A0s%2014.47.56.png" alt="app screen" height="300"/>
+<img src="https://github.com/andrekleine/ironhack-project-2-frontend-crud/blob/main/src/components/AppImgs/Captura%20de%20Tela%202021-10-15%20%C3%A0s%2014.47.56.png" alt="app screen" height="450"/>
 
 ## Built with
 
