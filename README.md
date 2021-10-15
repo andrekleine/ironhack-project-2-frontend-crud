@@ -17,17 +17,15 @@ Para utilizá-lo, basta acessar https://meus-favoritos.netlify.app/
 </span>
 
 ## Feito com
-* ReactJS 17.0.2
+* ReactJS
 * Foursquare: API findPlaces
 * Ironhack: Mongo Rest API
 
 
-### Bibliotecas externas: "@testing-library/jest-dom": "^5.14.1",
-* axios 0.21.4
-* bootstrap 5.1.1
-* react-bootstrap 2.0.0-rc.0
-* react-dom 17.0.2
-* react-router-dom 5.3.0
+### Bibliotecas externas:
+* Axios
+* Bootstrap
+* React-bootstrap
     
 ## Autores
 
