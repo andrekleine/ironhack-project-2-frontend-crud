@@ -16,24 +16,23 @@ Para utilizá-lo, basta acessar https://meus-favoritos.netlify.app/
 <img src="https://github.com/andrekleine/ironhack-project-2-frontend-crud/blob/main/src/components/AppImgs/Captura%20de%20Tela%202021-10-15%20%C3%A0s%2014.53.03.png" alt="app screen" height="450"/>
 </span>
 
-## Built with
+## Feito com
+* ReactJS 17.0.2
 
-* [Swift 4.2](https://developer.apple.com/swift/) - The programming language used
-* VIPER - Design Pattern
-* No external libraries were used in this project
+### Bibliotecas externas: "@testing-library/jest-dom": "^5.14.1",
+* axios 0.21.4
+* bootstrap 5.1.1
+* react-bootstrap 2.0.0-rc.0
+* react-dom 17.0.2
+* react-router-dom 5.3.0
+    
+## Autores
 
-## Authors
+* **André Kleine** - [Github](https://github.com/andrekleine) [LinkedIn](https://www.linkedin.com/in/andre-kleine-/)
+* **Renan Bartalo** - [Github](https://github.com/RenanBartalo) [LinkedIn](https://www.linkedin.com/in/renan-bartalo-51709b8a/)
 
-* **Luís Vieira** - [lsvra.com](https://lsvra.com)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+## Agradecimentos
+À sensacional equipe de professores da Ironhack:
+* Henrique Mendes
+* Henrique Morikawa
+* Flavia Maia
